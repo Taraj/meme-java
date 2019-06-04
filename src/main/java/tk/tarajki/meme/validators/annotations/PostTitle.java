@@ -10,10 +10,12 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 @Constraint(validatedBy = PasswordValidator.class)
-@Target( {ElementType.FIELD })
+@Target({ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface PostTitle {
     String message() default "Invalid post title";
+
     Class<?>[] groups() default {};
+
     Class<? extends Payload>[] payload() default {};
 }

@@ -6,7 +6,6 @@ import tk.tarajki.meme.validators.annotations.Password;
 import tk.tarajki.meme.validators.annotations.Username;
 
 import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
 
 @Data
 public class RegisterRequest {

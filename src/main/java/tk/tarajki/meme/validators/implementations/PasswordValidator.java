@@ -12,11 +12,7 @@ public class PasswordValidator implements ConstraintValidator<Password, String> 
             return false;
         }
 
-        if (value.length() > 32 || value.length() < 3) {
-            return false;
-        }
-
-        return true;
+        return value.length() <= 32 && value.length() >= 3;
     }
 
     @Override

@@ -6,6 +6,6 @@ import tk.tarajki.meme.models.Role;
 import tk.tarajki.meme.models.RoleName;
 
 @Repository
-public interface RoleRepository extends CrudRepository<Role, Long>{
+public interface RoleRepository extends CrudRepository<Role, Long> {
     Role findRoleByName(RoleName name);
 }

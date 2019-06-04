@@ -42,7 +42,7 @@ public class TagService {
 
         List<Post> posts = tag.getPosts();
         if (posts == null) {
-          return Collections.emptyList();
+            return Collections.emptyList();
         }
 
         return posts.stream()

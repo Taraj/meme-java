@@ -1,6 +1,5 @@
 package tk.tarajki.meme.validators.implementations;
 
-import tk.tarajki.meme.validators.annotations.Password;
 import tk.tarajki.meme.validators.annotations.PostTitle;
 
 import javax.validation.ConstraintValidator;
@@ -13,11 +12,7 @@ public class PostTitleValidator implements ConstraintValidator<PostTitle, String
             return false;
         }
 
-        if (value.length() > 32 || value.length() < 3) {
-            return false;
-        }
-
-        return true;
+        return value.length() <= 32 && value.length() >= 3;
     }
 
     @Override

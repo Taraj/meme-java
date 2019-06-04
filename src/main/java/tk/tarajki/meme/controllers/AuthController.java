@@ -46,7 +46,7 @@ public class AuthController {
     }
 
     @PostMapping("/reset/confirm")
-    public  ResponseEntity confirmPasswordReset(
+    public ResponseEntity confirmPasswordReset(
             @RequestBody @Valid ConfirmResetPasswordRequest confirmResetPasswordRequest
     ) {
         userService.resetPassword(confirmResetPasswordRequest);

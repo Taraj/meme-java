@@ -18,11 +18,7 @@ public class TagListValidator implements ConstraintValidator<TagList, List<Strin
             return false;
         }
 
-        if (!value.stream().allMatch(it -> it.length() > 2 && it.length() < 20)) {
-            return false;
-        }
-
-        return true;
+        return value.stream().allMatch(it -> it.length() > 2 && it.length() < 20);
     }
 
     @Override

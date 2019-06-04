@@ -16,7 +16,7 @@ public class DatabaseInitializer implements ApplicationRunner {
     }
 
     @Override
-    public void run(ApplicationArguments args){
+    public void run(ApplicationArguments args) {
         roleService.createIfNoExist(RoleName.ROLE_ADMIN);
         roleService.createIfNoExist(RoleName.ROLE_USER);
     }

@@ -17,11 +17,7 @@ public class UsernameValidator implements ConstraintValidator<Username, String> 
             return false;
         }
 
-        if (!value.chars().allMatch(Character::isLetterOrDigit)) {
-            return false;
-        }
-
-        return true;
+        return value.chars().allMatch(Character::isLetterOrDigit);
     }
 
     @Override

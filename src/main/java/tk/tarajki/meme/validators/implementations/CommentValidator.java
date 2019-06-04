@@ -12,11 +12,7 @@ public class CommentValidator implements ConstraintValidator<Comment, String> {
             return false;
         }
 
-        if(value.length() > 2048){
-            return false;
-        }
-
-        return true;
+        return value.length() <= 2048;
     }
 
     @Override

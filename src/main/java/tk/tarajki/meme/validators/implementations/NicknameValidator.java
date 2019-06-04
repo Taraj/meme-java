@@ -17,11 +17,7 @@ public class NicknameValidator implements ConstraintValidator<Nickname, String> 
             return false;
         }
 
-        if (!value.chars().allMatch(Character::isLetterOrDigit)) {
-            return false;
-        }
-
-        return true;
+        return value.chars().allMatch(Character::isLetterOrDigit);
     }
 
     @Override

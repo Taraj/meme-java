@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.*;
 import tk.tarajki.meme.dto.in.ActiveRequest;
 import tk.tarajki.meme.dto.in.ChangePasswordRequest;
 import tk.tarajki.meme.dto.in.SetAvatarRequest;
-import tk.tarajki.meme.dto.out.UserDto;
 import tk.tarajki.meme.security.UserPrincipal;
 import tk.tarajki.meme.services.UserService;
 

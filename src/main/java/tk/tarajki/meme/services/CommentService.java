@@ -50,7 +50,7 @@ public class CommentService {
         }
     }
 
-   public CommentDto getCommentById(long id) {
+    public CommentDto getCommentById(long id) {
         Comment comment = commentRepository.findCommentById(id);
         if (comment == null) {
             return null;
