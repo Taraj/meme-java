@@ -2,8 +2,15 @@ package tk.tarajki.meme.dto.in;
 
 import lombok.Data;
 
+import javax.validation.constraints.NotBlank;
+
 @Data
 public class LoginRequest {
-    String username;
-    String password;
+
+    @NotBlank
+    private String username;
+
+    @NotBlank
+    private String password;
+
 }

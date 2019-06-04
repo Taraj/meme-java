@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @Entity
@@ -27,6 +28,10 @@ public class Comment {
 
     @Column(nullable = false)
     private LocalDateTime createdAt = LocalDateTime.now();
+
+    @JoinColumn(name = "target_id")
+    @OneToMany(fetch = FetchType.LAZY)
+    private List<CommentFeedback> commentFeedback;
 
     public Comment(String content, User author, Post post) {
         this.content = content;

@@ -32,7 +32,7 @@ public class TagService {
         return tag;
     }
 
-    public List<PostDto> getAllPostsDtoByTagName(String tagName, int offset, int count) {
+    public List<PostDto> getAllPostsDtoByTagName(String tagName, long offset, long count) {
 
         Tag tag = tagRepository.findTagByName(tagName);
 

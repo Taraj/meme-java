@@ -2,6 +2,7 @@ package tk.tarajki.meme.services;
 
 import org.springframework.stereotype.Service;
 import tk.tarajki.meme.dto.in.FeedbackRequest;
+import tk.tarajki.meme.dto.out.CommentDto;
 import tk.tarajki.meme.exceptions.ResourceAlreadyExistException;
 import tk.tarajki.meme.exceptions.ResourceNotFoundException;
 import tk.tarajki.meme.exceptions.UserAuthException;
@@ -26,7 +27,7 @@ public class CommentService {
     }
 
     @Transactional
-    public void addFeedback(int id, FeedbackRequest feedbackRequest, User author) {
+    public void addFeedback(long id, FeedbackRequest feedbackRequest, User author) {
         if (author.getActivationToken() != null) {
             throw new UserAuthException("Account inactive.");
         }
@@ -49,4 +50,11 @@ public class CommentService {
         }
     }
 
+   public CommentDto getCommentById(long id) {
+        Comment comment = commentRepository.findCommentById(id);
+        if (comment == null) {
+            return null;
+        }
+        return new CommentDto(comment);
+    }
 }

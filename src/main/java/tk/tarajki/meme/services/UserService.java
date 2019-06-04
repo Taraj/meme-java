@@ -63,7 +63,7 @@ public class UserService {
     }
 
 
-    public List<PostDto> getUserPostsDtoByNickname(String nickname, int offset, int count) {
+    public List<PostDto> getUserPostsDtoByNickname(String nickname, long offset, long count) {
         List<Post> posts = findUserByNickname(nickname).getPosts();
         if (posts == null) {
             return Collections.emptyList();

@@ -5,15 +5,15 @@ import lombok.Data;
 @Data
 public class JwtAuthResponse {
     private String accessToken;
-    private boolean admin;
-    private boolean active;
+    private boolean isAdmin;
+    private boolean isActive;
     private String nickname;
     private String tokenType = "Bearer";
 
-    public JwtAuthResponse(String accessToken, boolean admin, boolean active, String nickname) {
+    public JwtAuthResponse(String accessToken, boolean isAdmin, boolean isActive, String nickname) {
         this.accessToken = accessToken;
-        this.admin = admin;
-        this.active = active;
+        this.isAdmin = isAdmin;
+        this.isActive = isActive;
         this.nickname = nickname;
     }
 }

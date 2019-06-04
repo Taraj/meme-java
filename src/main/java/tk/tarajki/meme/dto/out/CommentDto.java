@@ -2,6 +2,7 @@ package tk.tarajki.meme.dto.out;
 
 import lombok.Data;
 import tk.tarajki.meme.models.Comment;
+import tk.tarajki.meme.models.CommentFeedback;
 
 import java.time.LocalDateTime;
 
@@ -12,9 +13,16 @@ public class CommentDto {
     private PostDto post;
     private UserDto author;
     private LocalDateTime createdAt;
-    private int likes;
-    private int dislikes;
-    public CommentDto(Comment comment) {
+    private long likes;
+    private long dislikes;
 
+    public CommentDto(Comment comment) {
+        this.id = comment.getId();
+        this.content = comment.getContent();
+        this.post = new PostDto(comment.getPost());
+        this.author = new UserDto(comment.getAuthor());
+        this.createdAt = comment.getCreatedAt();
+        this.likes = comment.getCommentFeedback().stream().filter(CommentFeedback::isPositive).count();
+        this.dislikes = comment.getCommentFeedback().stream().filter(it -> !it.isPositive()).count();
     }
 }

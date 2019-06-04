@@ -1,8 +1,12 @@
 package tk.tarajki.meme.dto.in;
 
 import lombok.Data;
+import org.hibernate.validator.constraints.URL;
 
 @Data
 public class SetAvatarRequest {
-    String avatarURL;
+
+    @URL
+    private String avatarURL;
+
 }

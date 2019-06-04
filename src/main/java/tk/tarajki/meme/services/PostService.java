@@ -45,7 +45,7 @@ public class PostService {
         this.postFeedbackRepository = postFeedbackRepository;
     }
 
-    public List<PostDto> getAllPostDto(int offset, int count, boolean confirmed) {
+    public List<PostDto> getAllPostDto(long offset, long count, boolean confirmed) {
         Iterable<Post> posts = postRepository.findAll();
         return StreamSupport.stream(posts.spliterator(), false)
                 .filter(it -> {
@@ -150,4 +150,8 @@ public class PostService {
         return post;
     }
 
+    @Transactional
+    public void delete(long id){
+        postRepository.deleteById(id);
+    }
 }
