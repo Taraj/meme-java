@@ -10,7 +10,6 @@ import java.time.LocalDateTime;
 public class CommentDto {
     private long id;
     private String content;
-    private PostDto post;
     private UserDto author;
     private LocalDateTime createdAt;
     private long likes;
@@ -19,7 +18,6 @@ public class CommentDto {
     public CommentDto(Comment comment) {
         this.id = comment.getId();
         this.content = comment.getContent();
-        this.post = new PostDto(comment.getPost());
         this.author = new UserDto(comment.getAuthor());
         this.createdAt = comment.getCreatedAt();
         this.likes = comment.getCommentFeedback().stream().filter(CommentFeedback::isPositive).count();

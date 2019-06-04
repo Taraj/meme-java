@@ -23,6 +23,7 @@ import javax.transaction.Transactional;
 import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 
@@ -126,6 +127,9 @@ public class UserService {
 
     @Transactional
     public void activeAccount(User user, ActiveRequest activeRequest) {
+        if (user.getActivationToken() == null) {
+            throw new ResourceAlreadyExistException("Your account is active.");
+        }
         if (user.getActivationToken() == activeRequest.getCode()) {
             user.setActivationToken(null);
             userRepository.save(user);

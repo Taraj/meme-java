@@ -64,10 +64,12 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter {
                 return;
             }
 
+
+/*
             if (lastTokenRelease != principal.getUser().getLastTokenRelease()) {
                 response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Token outdated.");
             }
-
+*/
             TokenBasedAuthentication authentication = new TokenBasedAuthentication(principal, token);
             SecurityContextHolder.getContext().setAuthentication(authentication);
         }

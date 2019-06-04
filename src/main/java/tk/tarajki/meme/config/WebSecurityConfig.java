@@ -41,13 +41,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     @Override
-    public AuthenticationManager authenticationManager() {
-        try {
-            return super.authenticationManager();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
+    public AuthenticationManager authenticationManager() throws Exception {
+        return super.authenticationManager();
     }
 
     @Override
@@ -67,7 +62,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
                 .antMatchers("/api/v1/auth/**").permitAll()
 
-                .antMatchers(HttpMethod.GET, "/api/v1/users").permitAll()
+
                 .antMatchers(HttpMethod.GET, "/api/v1/users/*").permitAll()
                 .antMatchers(HttpMethod.GET, "/api/v1/users/*/posts").permitAll()
                 .antMatchers(HttpMethod.GET, "/api/v1/users/*/comments").permitAll()
@@ -79,10 +74,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
                 .antMatchers(HttpMethod.GET, "/api/v1/comments/*").permitAll()
 
-                .antMatchers(HttpMethod.GET, "/api/v1/tags").permitAll()
                 .antMatchers(HttpMethod.GET, "/api/v1/tags/*/posts").permitAll()
 
+
                 .antMatchers(HttpMethod.PUT, "/api/v1/posts/*").hasAuthority(RoleName.ROLE_ADMIN.name())
+                .antMatchers(HttpMethod.DELETE, "/api/v1/posts/*").hasAuthority(RoleName.ROLE_ADMIN.name())
 
                 .anyRequest().authenticated();
 

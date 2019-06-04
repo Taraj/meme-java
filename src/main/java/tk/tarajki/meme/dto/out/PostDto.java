@@ -15,7 +15,7 @@ public class PostDto {
     private String title;
     private String url;
     private List<TagDto> tags;
-    private User author;
+    private UserDto author;
     private long commentsCount;
     private long likes;
     private long dislikes;
@@ -26,9 +26,10 @@ public class PostDto {
         this.title = post.getTitle();
         this.url = post.getUrl();
         this.tags = post.getTags().stream().map(TagDto::new).collect(Collectors.toList());
-        this.author = post.getAuthor();
+        this.author = new UserDto(post.getAuthor());
         this.commentsCount = post.getComments().size();
         this.likes = post.getPostFeedback().stream().filter(PostFeedback::isPositive).count();
         this.dislikes = post.getPostFeedback().stream().filter(it -> !it.isPositive()).count();
+        this.createdAt = post.getCreatedAt();
     }
 }

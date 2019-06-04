@@ -74,7 +74,7 @@ public class PostService {
             throw new ResourceNotFoundException("Post not found");
         }
 
-        return new PostDto(posts.get(ThreadLocalRandom.current().nextInt(0, posts.size() - 1)));
+        return new PostDto(posts.get(ThreadLocalRandom.current().nextInt(0, posts.size())));
     }
 
     @Transactional
