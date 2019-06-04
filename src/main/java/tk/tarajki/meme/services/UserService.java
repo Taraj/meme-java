@@ -38,7 +38,8 @@ public class UserService {
     private UserFeedbackRepository userFeedbackRepository;
 
     public UserService(
-            UserRepository userRepository, RoleRepository roleRepository,
+            UserRepository userRepository,
+            RoleRepository roleRepository,
             BCryptPasswordEncoder bCryptPasswordEncoder,
             AuthenticationManager authenticationManager,
             JwtTokenProvider jwtTokenProvider,
