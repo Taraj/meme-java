@@ -1,5 +1,6 @@
 package tk.tarajki.meme.dto.out;
 
+import io.swagger.annotations.ApiModel;
 import lombok.Data;
 import tk.tarajki.meme.models.Comment;
 import tk.tarajki.meme.models.CommentFeedback;
@@ -7,6 +8,7 @@ import tk.tarajki.meme.models.CommentFeedback;
 import java.time.LocalDateTime;
 
 @Data
+@ApiModel(value = "Comment")
 public class CommentDto {
     private long id;
     private String content;

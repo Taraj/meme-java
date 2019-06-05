@@ -24,6 +24,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private BCryptPasswordEncoder bCryptPasswordEncoder;
     private JwtAuthorizationFilter jwtAuthorizationFilter;
 
+    private static final String[] SWAGGER = {
+            "/swagger-resources/**",
+            "/swagger-ui.html",
+            "/v2/api-docs",
+            "/webjars/**"
+    };
+
+
+
     public WebSecurityConfig(
             @Lazy UserDetailsServiceImpl userDetailsService,
             @Lazy BCryptPasswordEncoder bCryptPasswordEncoder,
@@ -60,6 +69,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/error").permitAll()
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
 
+                .antMatchers(SWAGGER).permitAll()
+
                 .antMatchers("/api/v1/auth/**").permitAll()
 
 
@@ -81,6 +92,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.DELETE, "/api/v1/posts/*").hasAuthority(RoleName.ROLE_ADMIN.name())
 
                 .anyRequest().authenticated();
+
 
         http.addFilterBefore(jwtAuthorizationFilter, UsernamePasswordAuthenticationFilter.class);
     }

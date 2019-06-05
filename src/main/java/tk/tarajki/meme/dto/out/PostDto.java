@@ -1,15 +1,16 @@
 package tk.tarajki.meme.dto.out;
 
+import io.swagger.annotations.ApiModel;
 import lombok.Data;
 import tk.tarajki.meme.models.Post;
 import tk.tarajki.meme.models.PostFeedback;
-import tk.tarajki.meme.models.User;
 
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Data
+@ApiModel(value = "Post")
 public class PostDto {
     private long id;
     private String title;

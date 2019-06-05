@@ -1,5 +1,6 @@
 package tk.tarajki.meme.dto.in;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
@@ -8,9 +9,11 @@ import javax.validation.constraints.NotBlank;
 public class LoginRequest {
 
     @NotBlank
+    @ApiModelProperty(required = true)
     private String username;
 
     @NotBlank
+    @ApiModelProperty(required = true)
     private String password;
 
 }

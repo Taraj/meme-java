@@ -1,5 +1,6 @@
 package tk.tarajki.meme.dto.out;
 
+import io.swagger.annotations.ApiModel;
 import lombok.Data;
 import tk.tarajki.meme.models.User;
 import tk.tarajki.meme.models.UserFeedback;
@@ -7,6 +8,7 @@ import tk.tarajki.meme.models.UserFeedback;
 import java.time.LocalDateTime;
 
 @Data
+@ApiModel(value = "User")
 public class UserDto {
     private long id;
     private String nickname;

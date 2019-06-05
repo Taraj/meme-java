@@ -1,8 +1,10 @@
 package tk.tarajki.meme.dto.out;
 
+import io.swagger.annotations.ApiModel;
 import lombok.Data;
 
 @Data
+@ApiModel(value = "AuthResponse")
 public class JwtAuthResponse {
     private String accessToken;
     private boolean isAdmin;

@@ -1,9 +1,11 @@
 package tk.tarajki.meme.dto.out;
 
+import io.swagger.annotations.ApiModel;
 import lombok.Data;
 import tk.tarajki.meme.models.Tag;
 
 @Data
+@ApiModel(value = "Tag")
 public class TagDto {
     private long id;
     private String name;
